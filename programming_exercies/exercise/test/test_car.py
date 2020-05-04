@@ -27,7 +27,7 @@ y_pred = reg.predict(x_data)
 print("r2_score", r2_score(y_data, y_pred))
 #
 x_test = []
-with open('programming_exercies/exercise/test/car_62.csv', newline='') as csvfile:
+with open('programming_exercies/exercise/test/car_574.csv', newline='') as csvfile:
     spamreader = csv.reader(csvfile, delimiter='\t')
     first = True
     for row in spamreader:
@@ -36,7 +36,7 @@ with open('programming_exercies/exercise/test/car_62.csv', newline='') as csvfil
             continue
         x_test.append(row)
 
-x_test = np.asarray(x_test, dtype='float').T
+x_test = np.asarray(x_test, dtype='float')
 print("x_test.shape", x_test.shape)
 #
 y_pred = reg.predict(x_test)
