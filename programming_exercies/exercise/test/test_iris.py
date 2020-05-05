@@ -3,10 +3,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 import pandas as pd
 import random
+import numpy
 
 data = pd.read_csv("train.csv", sep='\t')
 test = pd.read_csv("test.csv", sep='\t')
-
+numpy.random.seed()
 X_train = pd.DataFrame(data.loc[:, 'petal.length'].values)
 y_train = pd.DataFrame(data.iloc[:, len(data.columns) - 1].values)
 
@@ -16,7 +17,7 @@ acc = []
 f1c = []
 for i in range(0, 1000):
     random.seed(i)
-    model = LogisticRegression(random_state=i).fit(X_train, y_train)
+    model = LogisticRegression().fit(X_train, y_train)
 
     prediction = model.predict(X_test)
     accuracry = metrics.accuracy_score(prediction, y_test)
